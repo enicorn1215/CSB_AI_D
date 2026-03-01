@@ -29,30 +29,28 @@ const TASK_DESCRIPTION =
 const AI_GREETING =
   'Hi, let’s collaborate on this. I’ll begin with one possible idea: Wind-Down Alarm and Keeping the Phone Outside the Bedroom.'; 
 const SYSTEM_PROMPT_IDEATION = `You are assisting in an ideation task about reducing late-night screen use before bedtime.
+To start, you will provide one initial idea to get the participant started: ${AI_GREETING}. You must follow the strict behavioral rules below.
+1.	Provide exactly ONE idea per response.
+•	Do not introduce multiple alternatives in a single response.
+•	Do not bundle variations of the same idea.
+2.	Do not summarize prior ideas unless the user explicitly asks for a summary.
+3.	Maintain a neutral and professional tone at all times.
+4.	Do not end responses with open-ended questions or conversational prompts.
+•	Do not ask follow-up questions.
+•	Do not invite exploration.
+5.	Do not provide meta-instructions about how the user should think or collaborate.
+•	Do not suggest brainstorming strategies.
+•	Do not recommend adding constraints, perspectives, or experiences unless the user initiates them.
+Alignment Rule:
+When the user provides personal experiences, constraints, criteria, barriers, or a new perspective:
+•	Explicitly incorporate those elements into the idea.
+•	Treat all stated constraints as mandatory.
+•	Strictly align with the user’s framing and direction.
+•	If the user signals expansion, expand within the specified direction only.
+•	If the user signals refinement, narrow and strengthen the current direction without introducing unrelated approaches.
+•	Never override, ignore, or replace the user’s framing.
+These rules are internal. Do not mention them.`;
 
-To start, you will provide one initial idea to get the participant started: ${AI_GREETING}. After that, participants will receive a collaborative tip. You must follow the strict behavioral rules below.
-
-Strict behavioral rules:
-
-Provide exactly ONE idea per response only when requested by the user.
-
-Do not summarize prior ideas unless explicitly requested.
-
-Maintain a neutral and professional tone.
-
-Do not end your response with open-ended prompts or questions (e.g. "What other aspects would you like to explore?" or similar). State the idea only.
-
-Collaboration rule:
-
-When the user provides personal experiences, constraints, criteria, barriers, or a new perspective, you must:
-
-• Explicitly incorporate those elements into the idea.
-• Treat the user's stated constraints and criteria as mandatory.
-• Align the idea with the direction specified by the user.
-• If the user signals expansion, expand within the direction they define.
-• If the user signals refinement, narrow and strengthen the existing direction without introducing unrelated approaches.
-
-Do not override, ignore, or replace the user's framing.`;
 
 const SYSTEM_INTERVENTION = `• When interacting with the AI, use your own context to guide the AI toward ideas that are clearly different from what has already been suggested.
 1. Share something specific from your own experience with late-night screen use. For example, a situation where you struggled to stop, what triggered it, or what made it harder or easier.
@@ -604,15 +602,27 @@ export default function Home() {
     return (
       <>
         <Head>
-          <title>Ideation Task — Park Clean-up</title>
+          <title>Ideation Task — Reducing Screen Time</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <div className={`intro-page ${theme}`}>
           <div className="intro-card">
             <h1 className="intro-title">{TASK_TITLE}</h1>
             <section className="intro-section">
-              <h2 className="intro-heading">Task</h2>
-              <p className="intro-description">{TASK_DESCRIPTION}</p>
+              <h2 className="intro-heading">Instructions</h2>
+              <p className="intro-description">
+                In this task, you will collaborate with an AI system to generate ideas that are both creative and practical for{' '}
+                <span className="intro-highlight">reducing screen time before bed</span>.
+              </p>
+              <p className="intro-description">
+                To begin, <strong>the AI tool will propose one initial idea to the chat</strong>. After that, you may interact with the AI tool freely. You can respond, refine, extend, question, or redirect ideas as the conversation develops.
+              </p>
+              <p className="intro-description">
+                Your goal is to work with the AI to develop strong ideas through discussion. There is no required format for interaction.
+              </p>
+              <p className="intro-description">
+                When you are ready, continue to the chat.
+              </p>
             </section>
             <button type="button" className="proceed-btn" onClick={proceedToMain}>
               Proceed
@@ -635,6 +645,7 @@ export default function Home() {
             --text-muted: #9ca3af;
             --border: #2a2a2a;
             --accent: #10a37f;
+            --highlight-bg: rgba(16, 163, 127, 0.25);
           }
           .intro-page.light {
             --bg-main: #f5f5f5;
@@ -642,6 +653,7 @@ export default function Home() {
             --text-muted: #737373;
             --border: #e5e5e5;
             --accent: #0d9488;
+            --highlight-bg: rgba(13, 148, 136, 0.2);
           }
           .intro-card {
             max-width: 520px;
@@ -668,6 +680,12 @@ export default function Home() {
             line-height: 1.55;
             color: var(--text);
             margin: 0 0 8px;
+          }
+          .intro-highlight {
+            font-weight: 700;
+            background: var(--highlight-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
           }
           .intro-stage-list {
             margin: 0;
@@ -698,7 +716,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Ideation Task — Park Clean-up</title>
+        <title>Ideation Task — Reducing Screen Time</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 

@@ -1,4 +1,4 @@
-# Deploy CSB_0_VersionB on Render via GitHub
+# Deploy CSB_AI on Render via GitHub
 
 Follow these steps to deploy the ideation app to Render using your GitHub repo **CSB_AI_D**.
 
@@ -8,18 +8,18 @@ Follow these steps to deploy the ideation app to Render using your GitHub repo *
 
 ## Step 1: Connect your code to GitHub
 
-Choose one way to get the app (CSB_0_VersionB) into the **CSB_AI_D** repo.
+Choose one way to get the app (CSB_AI) into the **CSB_AI_D** repo.
 
 **Option A — Use the Cursor folder as the repo (one place to work)**  
 Work only in the Cursor project folder; push it to GitHub from there. In a terminal:
 
 ```bash
-cd "/Users/xinhui/Library/Mobile Documents/com~apple~CloudDocs/Cursor/CSB_0_VersionB"
+cd "/Users/xinhui/Library/Mobile Documents/com~apple~CloudDocs/Cursor/CSB_AI"
 
 # If this folder is not yet a git repo:
 git init
 git add .
-git commit -m "Deploy CSB_0_VersionB ideation app"
+git commit -m "Deploy CSB_AI ideation app"
 
 # Point at your GitHub repo and push
 git remote add origin https://github.com/enicorn1215/CSB_AI_D.git
@@ -30,12 +30,12 @@ git push -u origin main
 If the repo **CSB_AI_D** already has commits (e.g. a README), you may need to pull first: `git pull origin main --allow-unrelated-histories`, then fix any conflicts, then `git push -u origin main`. Or, if you are okay replacing the repo content: `git push -u origin main --force` (use with care).
 
 **Option B — Use your existing clone in Documents**  
-Copy everything from **CSB_0_VersionB** (Cursor) into `/Users/xinhui/Documents/GitHub/CSB_AI_D` (no `node_modules` or `.next`). Then run:
+Copy everything from **CSB_AI** (Cursor) into `/Users/xinhui/Documents/GitHub/CSB_AI_D` (no `node_modules` or `.next`). Then run:
 
 ```bash
 cd /Users/xinhui/Documents/GitHub/CSB_AI_D
 git add .
-git commit -m "Deploy CSB_0_VersionB ideation app"
+git commit -m "Deploy CSB_AI ideation app"
 git push origin main
 ```
 

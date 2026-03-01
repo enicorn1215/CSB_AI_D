@@ -20,7 +20,7 @@ export default async function handler(
     return res.status(500).json({ error: 'OPENAI_API_KEY is not set' });
   }
 
-  const { messages, model = 'gpt-4o' } = req.body as {
+  const { messages, model = 'gpt-5.2' } = req.body as {
     messages?: Message[];
     model?: string;
   };
